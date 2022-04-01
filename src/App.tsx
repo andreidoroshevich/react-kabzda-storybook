@@ -22,8 +22,8 @@ function App() {
             <UncontrolledAccordion titleValue={"Menu"}/>
             <Accordion titleValue={'Menu'} collapsed={collapsedValue} onChange={()=>{SetCollapsedValue(!collapsedValue)}}/>
 
-            <UncontrolledRating/>
-            <Rating value={ratingValue} onClick={SetRatingValue}/>
+            <UncontrolledRating onChange={()=>{}}/>
+            <Rating value={ratingValue} onClick={SetRatingValue} />
 
 
         </div>

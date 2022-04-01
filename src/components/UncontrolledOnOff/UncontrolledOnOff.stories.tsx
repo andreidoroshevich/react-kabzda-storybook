@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {action} from '@storybook/addon-actions';
 import {UncontrolledOnOff} from "./UncontrolledOnOff";
-import {Accordion} from "../Accordion/Accordion";
 
 
 export default {

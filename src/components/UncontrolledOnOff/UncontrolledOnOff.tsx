@@ -59,3 +59,4 @@ export const UncontrolledOnOff = (props: PropsType) => {
     );
 };
 
+export default UncontrolledOnOff

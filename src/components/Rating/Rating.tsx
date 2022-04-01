@@ -34,4 +34,3 @@ function Star(props: StarPropsStar) {
     return <span onClick={()=>{props.onClick(props.value)}}>{props.selected ? <b>Star </b> : 'Star '}</span>
 }
 
-export default Rating
