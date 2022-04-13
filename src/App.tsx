@@ -20,7 +20,7 @@ function App() {
             <UnControlledOnOff onClick={setIsOn}/>{isOn.toString()}
 
             <UncontrolledAccordion titleValue={"Menu"}/>
-            <Accordion titleValue={'Menu'} collapsed={collapsedValue} onChange={()=>{SetCollapsedValue(!collapsedValue)}} />
+            {/*<Accordion titleValue={'Menu'} collapsed={collapsedValue} onChange={()=>{SetCollapsedValue(!collapsedValue)}} />*/}
 
             <UncontrolledRating onChange={()=>{}}/>
             <Rating value={ratingValue} onClick={SetRatingValue} />
