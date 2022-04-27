@@ -6,6 +6,7 @@ import UncontrolledAccordion from "./components/UncontrolledAccordion/Uncontroll
 import UncontrolledRating from "./components/UncontrolledRating/UncontrolledRating";
 import {Accordion} from "./components/Accordion/Accordion";
 import UnControlledOnOff from "./components/UncontrolledOnOff/UncontrolledOnOff";
+import {log} from "util";
 
 function App() {
     console.log("App rendered")
@@ -13,17 +14,27 @@ function App() {
     let [collapsedValue, SetCollapsedValue] = useState<boolean>(true)
     let [isOn, setIsOn] = useState(false)
 
+    let items =
+        [
+            {title: "Dimych", value: 1},
+            {title: "Valera", value: 2},
+            {title: "Artem", value: 3},
+        ]
+
+
     return (
         <div className={'App'}>
+
 
             <OnOff on={isOn} onClick={setIsOn}/>
             <UnControlledOnOff onClick={setIsOn}/>{isOn.toString()}
 
             <UncontrolledAccordion titleValue={"Menu"}/>
-            {/*<Accordion titleValue={'Menu'} collapsed={collapsedValue} onChange={()=>{SetCollapsedValue(!collapsedValue)}} />*/}
+            <Accordion titleValue={'Menu'} collapsed={collapsedValue} onClick={()=>console.log()} onChange={()=>{SetCollapsedValue(!collapsedValue)}}  items={items}/>
 
-            <UncontrolledRating onChange={()=>{}}/>
-            <Rating value={ratingValue} onClick={SetRatingValue} />
+            <UncontrolledRating onChange={() => {
+            }}/>
+            <Rating value={ratingValue} onClick={SetRatingValue}/>
 
 
         </div>
