@@ -6,7 +6,7 @@ import UncontrolledAccordion from "./components/UncontrolledAccordion/Uncontroll
 import UncontrolledRating from "./components/UncontrolledRating/UncontrolledRating";
 import {Accordion} from "./components/Accordion/Accordion";
 import UnControlledOnOff from "./components/UncontrolledOnOff/UncontrolledOnOff";
-import {log} from "util";
+import {AnalogClock} from "./components/Clock/AnalogClock";
 
 function App() {
     console.log("App rendered")
@@ -35,6 +35,9 @@ function App() {
             <UncontrolledRating onChange={() => {
             }}/>
             <Rating value={ratingValue} onClick={SetRatingValue}/>
+            <div className={'analogClock'}>
+
+            </div>
 
 
         </div>
