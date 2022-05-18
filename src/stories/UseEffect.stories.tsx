@@ -11,7 +11,7 @@ export const SimpleExample = () => {
     const [counter, setCounter] = useState(1)
 
     // useEffect срабатывает только после отображения JSX (до отрисовки только регистрирует эффект)
-    useEffect(()=> {
+    useEffect(() => {
         console.log("useEffect")
         document.title = counter.toString()
 
@@ -24,7 +24,7 @@ export const SimpleExample = () => {
         //document.title = "User"
 
     }) // every render
-    useEffect(()=>{
+    useEffect(() => {
         console.log("useEffect")
         document.title = counter.toString()
 
@@ -36,8 +36,8 @@ export const SimpleExample = () => {
         //document.getElementBytId
         //document.title = "User"
 
-    },[]) // only first render (componentDidMount)
-    useEffect(()=>{
+    }, []) // only first render (componentDidMount)
+    useEffect(() => {
         console.log("useEffect")
         document.title = counter.toString()
 
@@ -49,7 +49,7 @@ export const SimpleExample = () => {
         //document.getElementBytId
         //document.title = "User"
 
-    },[counter]) // only when counter changed
+    }, [counter]) // only when counter changed
 
 
     return (
@@ -69,20 +69,23 @@ export const SetTimeOutExample = () => {
     const [fake, setFake] = useState(1)
     const [counter, setCounter] = useState(1)
 
-   // useEffect срабатывает только после отображения JSX (до отрисовки только регистрирует эффект)
+    // useEffect срабатывает только после отображения JSX (до отрисовки только регистрирует эффект)
 
-    useEffect(()=> {
+    useEffect(() => {
         console.log("useEffect")
         // setTimeout(()=>{
         //     document.title = counter.toString()
         // }, 1000)
 
-        setInterval(()=>{
-            setCounter(state=>state+1)
+        const intervalID = setInterval(() => {
+            setCounter(state => state + 1)
         }, 1000)
 
-    }, [])
+        return () => {
+            clearInterval(intervalID)
+        }
 
+    }, [])
 
 
     return (
@@ -95,4 +98,75 @@ export const SetTimeOutExample = () => {
     )
 
 
+}
+
+export const ResetEffectExample = () => {
+
+    const [counter, setCounter] = useState(0)
+    console.log('Component rendered')
+
+    useEffect(() => {
+        console.log('Effect occurred')
+
+        return () => {
+            console.log('reset effect')
+        }
+    }, [])
+
+    const increase = () => {
+        setCounter(counter + 1)
+    }
+
+    return (
+        <>
+            <div>Hello, counter: {counter}</div>
+            <div>
+                <button onClick={increase}>+</button>
+            </div>
+        </>
+    )
+
+}
+
+export const KeysTrackerExample = () => {
+
+    const [text, setText] = useState('')
+    console.log('Component rendered' + text)
+
+    useEffect(() => {
+        const handler = (e: KeyboardEvent) => {
+            console.log(e.key)
+            setText((state) => state + e.key)
+        }
+        window.addEventListener('keypress', handler)
+
+        return () => {
+            window.removeEventListener('keypress', handler)
+        }
+    }, [])
+    return (
+        <>
+            <div>Typed text: {text} </div>
+        </>
+    )
+}
+
+export const SetTimeoutExample = () => {
+
+    const [text, setText] = useState('')
+    console.log('Component rendered' + text)
+
+    useEffect(() => {
+        const timeoutID = setTimeout(() => {
+            setText('3 seconds passed')
+        }, 3000)
+        return () => {
+            clearTimeout(timeoutID)
+        }
+    }, [text])
+    return (
+        <>
+            <div>Text: {text} </div>
+        </>
+    )
 }

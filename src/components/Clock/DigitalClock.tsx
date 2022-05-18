@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-
+import styles from "./styles.module.css"
 
 type PropsType = {}
 
@@ -19,12 +19,12 @@ return ()=>{clearInterval(id)}
     const seconds = get2DigitsString(date.getSeconds())
 
     return (
-        <div className={'digitalClock'}>
-            <span className={'clockNumber'}>{hours}</span>
-            <span className={'separator'}>:</span>
-            <span className={'clockNumber'}>{minutes}</span>
-            <span className={'separator'}>:</span>
-            <span className={'clockNumber'}>{seconds}</span>
+        <div className={styles.digitalClock}>
+            <span className={styles.clockNumber}>{hours}</span>
+            <span className={styles.separator}>:</span>
+            <span className={styles.clockNumber}>{minutes}</span>
+            <span className={styles.separator}>:</span>
+            <span className={styles.clockNumber}>{seconds}</span>
         </div>
     )
 }

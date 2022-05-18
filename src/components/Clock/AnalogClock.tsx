@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import "../Clock/styles.css"
+import styles from "./styles.module.css"
 
 type PropsType = {}
 
@@ -14,37 +14,37 @@ export const AnalogClock: React.FC<PropsType> = (props) => {
     }, [])
 
         return (
-            <div className="clock">
+            <div className={styles.clock}>
                 <div
-                    className="hour_hand"
+                    className={styles.hour_hand}
                     style={{
                         transform: `rotateZ(${date.getHours() * 30}deg)`
                     }}
                 />
                 <div
-                    className="min_hand"
+                    className={styles.min_hand}
                     style={{
                         transform: `rotateZ(${date.getMinutes() * 6}deg)`
                     }}
                 />
                 <div
-                    className="sec_hand"
+                    className={styles.sec_hand}
                     style={{
                         transform: `rotateZ(${date.getSeconds() * 6}deg)`
                     }}
                 />
-                <span className="twelve">12</span>
-                <span className="one">1</span>
-                <span className="two">2</span>
-                <span className="three">3</span>
-                <span className="four">4</span>
-                <span className="five">5</span>
-                <span className="six">6</span>
-                <span className="seven">7</span>
-                <span className="eight">8</span>
-                <span className="nine">9</span>
-                <span className="ten">10</span>
-                <span className="eleven">11</span>
+                <span className={styles.twelve}>12</span>
+                <span className={styles.one}>1</span>
+                <span className={styles.two}>2</span>
+                <span className={styles.three}>3</span>
+                <span className={styles.four}>4</span>
+                <span className={styles.five}>5</span>
+                <span className={styles.six}> 6</span>
+                <span className={styles.seven}>7</span>
+                <span className={styles.eight}>8</span>
+                <span className={styles.nine}>9</span>
+                <span className={styles.ten}>10</span>
+                <span className={styles.eleven}>11</span>
             </div>
         );
     }
